@@ -16,7 +16,7 @@ struct productListView: View {
                     Section(header: Text(cluster.tag)) {
                         ForEach(cluster.items, id: \.self) { item in
                             List {
-                                NavigationLink(item.title, destination: ProductDetailView(productId: item.id))
+                                NavigationLink(item.title, destination: ProductDetailView(productId: item.id, productDetailImageUrl: item.imageUrl))
                             }
                         }
                     }
