@@ -15,6 +15,9 @@
 		0484987C283EA2D400E95685 /* ocado_challengeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0484987B283EA2D400E95685 /* ocado_challengeUITests.swift */; };
 		04849890283EA3C600E95685 /* ProductListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0484988F283EA3C600E95685 /* ProductListViewModel.swift */; };
 		04849895283EA4F500E95685 /* ProductListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04849894283EA4F500E95685 /* ProductListModel.swift */; };
+		04A783BC283F933400CBCEFC /* ProductDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A783BB283F933400CBCEFC /* ProductDetailModel.swift */; };
+		04A783C1283F968F00CBCEFC /* ProductDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A783C0283F968F00CBCEFC /* ProductDetailViewModel.swift */; };
+		04A783C6283F97CC00CBCEFC /* ProductDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A783C5283F97CC00CBCEFC /* ProductDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +52,9 @@
 		0484987D283EA2D400E95685 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0484988F283EA3C600E95685 /* ProductListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListViewModel.swift; sourceTree = "<group>"; };
 		04849894283EA4F500E95685 /* ProductListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListModel.swift; sourceTree = "<group>"; };
+		04A783BB283F933400CBCEFC /* ProductDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailModel.swift; sourceTree = "<group>"; };
+		04A783C0283F968F00CBCEFC /* ProductDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewModel.swift; sourceTree = "<group>"; };
+		04A783C5283F97CC00CBCEFC /* ProductDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,9 +106,8 @@
 			isa = PBXGroup;
 			children = (
 				0484985E283EA2C700E95685 /* ocado_challengeApp.swift */,
-				04849860283EA2C700E95685 /* productListView.swift */,
-				0484988F283EA3C600E95685 /* ProductListViewModel.swift */,
-				04849894283EA4F500E95685 /* ProductListModel.swift */,
+				04A783BA283F931700CBCEFC /* ProductDetail */,
+				04A783B9283F930300CBCEFC /* ProductList */,
 				04849862283EA2D400E95685 /* Assets.xcassets */,
 				04849867283EA2D400E95685 /* Info.plist */,
 				04849864283EA2D400E95685 /* Preview Content */,
@@ -134,6 +139,26 @@
 				0484987D283EA2D400E95685 /* Info.plist */,
 			);
 			path = ocado_challengeUITests;
+			sourceTree = "<group>";
+		};
+		04A783B9283F930300CBCEFC /* ProductList */ = {
+			isa = PBXGroup;
+			children = (
+				04849860283EA2C700E95685 /* productListView.swift */,
+				0484988F283EA3C600E95685 /* ProductListViewModel.swift */,
+				04849894283EA4F500E95685 /* ProductListModel.swift */,
+			);
+			path = ProductList;
+			sourceTree = "<group>";
+		};
+		04A783BA283F931700CBCEFC /* ProductDetail */ = {
+			isa = PBXGroup;
+			children = (
+				04A783BB283F933400CBCEFC /* ProductDetailModel.swift */,
+				04A783C0283F968F00CBCEFC /* ProductDetailViewModel.swift */,
+				04A783C5283F97CC00CBCEFC /* ProductDetailView.swift */,
+			);
+			path = ProductDetail;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -265,10 +290,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04A783BC283F933400CBCEFC /* ProductDetailModel.swift in Sources */,
+				04A783C6283F97CC00CBCEFC /* ProductDetailView.swift in Sources */,
 				04849861283EA2C700E95685 /* productListView.swift in Sources */,
 				0484985F283EA2C700E95685 /* ocado_challengeApp.swift in Sources */,
 				04849890283EA3C600E95685 /* ProductListViewModel.swift in Sources */,
 				04849895283EA4F500E95685 /* ProductListModel.swift in Sources */,
+				04A783C1283F968F00CBCEFC /* ProductDetailViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
