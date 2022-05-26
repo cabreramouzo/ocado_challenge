@@ -14,7 +14,7 @@ struct ProductDetailView: View {
     var body: some View {
         VStack {
             Form {
-                Section(header: Text("Product Detail")) {
+                Section(header: Text("Title")) {
                     VStack {
                         Text(productDetailVM.productDetail.title)
                     }
@@ -38,6 +38,7 @@ struct ProductDetailView: View {
                     }
                 }
             }
+            .navigationBarTitle(Text("Product Detail"))
         }
             .onAppear(perform: {
                 print("product ID: \(productId)")
