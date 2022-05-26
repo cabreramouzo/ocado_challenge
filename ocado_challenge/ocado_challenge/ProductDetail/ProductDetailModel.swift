@@ -7,9 +7,6 @@
 
 import Foundation
 
-var productId: Int = 386132011
-var urlProductDetail = URL(string: "https://my-json-server.typicode.com/ocadotechnology/mobile-challenge/product/\(productId)")
-
 func getProductUrl(product id: Int) -> URL {
     return URL(string: "https://my-json-server.typicode.com/ocadotechnology/mobile-challenge/product/\(id)")!
 }
