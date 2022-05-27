@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ProductDetailView: View {
     @StateObject var productDetailVM = ProductDetailViewModel()
+    @StateObject var imageVM = ImageViewModel()
     let productId: Int
     let productDetailImageUrl: String
     var body: some View {
@@ -28,7 +29,7 @@ struct ProductDetailView: View {
                 Section(header: Text("Image")) {
                     HStack {
                         Spacer()
-                        productDetailVM.productDetailImage
+                        imageVM.image
                             .resizable()
                             .scaledToFit()
                             .frame(width:150, height: 150)
@@ -43,7 +44,7 @@ struct ProductDetailView: View {
             .onAppear(perform: {
                 //print("product ID: \(productId)")
                 productDetailVM.getProductDetail(id: productId)
-                productDetailVM.getProductDetailImage(imageUrl: productDetailImageUrl)
+                imageVM.getNetworkImage(imageUrl: productDetailImageUrl)
             })
     }
 }

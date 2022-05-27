@@ -1,5 +1,5 @@
 //
-//  ImagesViewModel.swift
+//  ImageViewModel.swift
 //  ocado_challenge
 //
 //  Created by MAC on 27/05/2022.
