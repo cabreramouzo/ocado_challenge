@@ -30,6 +30,15 @@ class ocado_challengeUITests: XCTestCase {
         // Use recording to get started writing UI tests.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
+    
+    func products_show_price() throws {
+        let app = XCUIApplication()
+        app.launch()
+        //let itemRow = app.link.otherEleme
+        //let linkLogin = self.app.otherElements.buttons["linkLogin"]
+        
+        
+    }
 
     func testLaunchPerformance() throws {
         if #available(macOS 10.15, iOS 13.0, tvOS 13.0, *) {

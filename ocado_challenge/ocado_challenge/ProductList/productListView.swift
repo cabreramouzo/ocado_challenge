@@ -24,6 +24,8 @@ struct productListView: View {
                     }
                 }
             }.navigationTitle(Text("Products"))
+        }.onAppear {
+            productsVM.fetchData()
         }
     }
 }

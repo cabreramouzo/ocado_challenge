@@ -22,6 +22,25 @@ class ocado_challengeTests: XCTestCase {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
+    
+    func testSuccessFetchData() throws {
+        
+        let tag = "Fresh > Fruit > Bananas"
+        let items = [
+            Product(id: 1, price: "33", title: "title", size: "big", imageUrl: ""),
+            Product(id: 2, price: "33", title: "title", size: "small", imageUrl: "")
+        ]
+        let expectedCluster = [Cluster(tag: tag, items: items)]
+        
+        let service = MockService(mockData: expectedCluster)
+        
+        let vm = ProductListViewModel(service: service)
+        vm.fetchData()
+        
+        XCTAssertEqual(vm.clusters[0].items.count, 2)
+    }
+    
+    
 
     func testPerformanceExample() throws {
         // This is an example of a performance test case.
