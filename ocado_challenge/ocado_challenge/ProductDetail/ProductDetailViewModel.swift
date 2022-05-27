@@ -10,7 +10,6 @@ import Combine
 
 final class ProductDetailViewModel: ObservableObject {
     @Published var productDetail = ProductDetail(id: 123, price: "2.30", title: "Product Title", imageUrl: "", description: "Product description", allergyInformation: "No allergy info")
-    @Published var productDetailImage = Image(systemName: "camera")
     var subscribers = Set<AnyCancellable>()
     
     func getProductDetail(id: Int) {
