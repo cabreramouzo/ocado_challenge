@@ -27,8 +27,8 @@ class ocado_challengeTests: XCTestCase {
         
         let tag = "Fresh > Fruit > Bananas"
         let items = [
-            Product(id: 1, price: "33", title: "title", size: "big", imageUrl: ""),
-            Product(id: 2, price: "33", title: "title", size: "small", imageUrl: "")
+            Product(id: 1, price: "33", title: "Title Product 1", size: "big", imageUrl: ""),
+            Product(id: 2, price: "12", title: "Title Product 2", size: "small", imageUrl: "")
         ]
         let expectedCluster = [Cluster(tag: tag, items: items)]
         
@@ -40,7 +40,26 @@ class ocado_challengeTests: XCTestCase {
         XCTAssertEqual(vm.clusters[0].items.count, 2)
     }
     
+    func testEmptyData() {
+        let expected = [Cluster]()
+        let service = MockService(mockData: expected)
+        
+        let vm = ProductListViewModel(service: service)
+
+        vm.fetchData()
+        
+        XCTAssertEqual(vm.clusters.count, 0)
+    }
     
+    func testNilData() {
+        let expectedList: [Cluster]? = nil
+        let service = MockService(mockData: expectedList)
+        
+        let vm = ProductListViewModel(service: service)
+        vm.fetchData()
+        
+        XCTAssertEqual(vm.clusters.count, 0)
+    }
 
     func testPerformanceExample() throws {
         // This is an example of a performance test case.
