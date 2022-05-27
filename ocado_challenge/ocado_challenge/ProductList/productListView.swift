@@ -15,12 +15,39 @@ struct productListView: View {
                 ForEach(productsVM.clusters, id: \.self) { cluster in
                     Section(header: Text(cluster.tag)) {
                         ForEach(cluster.items, id: \.self) { item in
-                            NavigationLink(item.title, destination: ProductDetailView(productId: item.id, productDetailImageUrl: item.imageUrl))
+                            //NavigationLink(item.title, destination: ProductDetailView(productId: item.id, productDetailImageUrl: item.imageUrl))
+                            NavigationLink(
+                                destination: ProductDetailView(productId: item.id, productDetailImageUrl: item.imageUrl),
+                                label: {
+                                    ProductRow(product: item)
+                                })
                         }
                     }
                 }
             }.navigationTitle(Text("Products"))
         }
+    }
+}
+
+struct ProductRow: View {
+    @StateObject var imageVM = ImageViewModel()
+    let product: Product
+    var body: some View {
+        HStack {
+            VStack(alignment: .leading) {
+                Text("\(product.title)")
+                Text("£ " + "\(product.price)")
+                    .font(.footnote)
+                
+            }
+            Spacer()
+            imageVM.image
+                .resizable()
+                .scaledToFit()
+                .frame(width: 50)
+        }.onAppear(perform: {
+            imageVM.getNetworkImage(imageUrl: product.imageUrl)
+        })
     }
 }
 

@@ -18,6 +18,7 @@
 		04A783BC283F933400CBCEFC /* ProductDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A783BB283F933400CBCEFC /* ProductDetailModel.swift */; };
 		04A783C1283F968F00CBCEFC /* ProductDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A783C0283F968F00CBCEFC /* ProductDetailViewModel.swift */; };
 		04A783C6283F97CC00CBCEFC /* ProductDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A783C5283F97CC00CBCEFC /* ProductDetailView.swift */; };
+		04F582E22840E2EE00373428 /* ImagesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F582E12840E2EE00373428 /* ImagesViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		04A783BB283F933400CBCEFC /* ProductDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailModel.swift; sourceTree = "<group>"; };
 		04A783C0283F968F00CBCEFC /* ProductDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewModel.swift; sourceTree = "<group>"; };
 		04A783C5283F97CC00CBCEFC /* ProductDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailView.swift; sourceTree = "<group>"; };
+		04F582E12840E2EE00373428 /* ImagesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 			children = (
 				0484985E283EA2C700E95685 /* ocado_challengeApp.swift */,
 				04A783BA283F931700CBCEFC /* ProductDetail */,
+				04F582E02840E2BA00373428 /* Utils */,
 				04A783B9283F930300CBCEFC /* ProductList */,
 				04849862283EA2D400E95685 /* Assets.xcassets */,
 				04849867283EA2D400E95685 /* Info.plist */,
@@ -159,6 +162,14 @@
 				04A783C5283F97CC00CBCEFC /* ProductDetailView.swift */,
 			);
 			path = ProductDetail;
+			sourceTree = "<group>";
+		};
+		04F582E02840E2BA00373428 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				04F582E12840E2EE00373428 /* ImagesViewModel.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -292,6 +303,7 @@
 			files = (
 				04A783BC283F933400CBCEFC /* ProductDetailModel.swift in Sources */,
 				04A783C6283F97CC00CBCEFC /* ProductDetailView.swift in Sources */,
+				04F582E22840E2EE00373428 /* ImagesViewModel.swift in Sources */,
 				04849861283EA2C700E95685 /* productListView.swift in Sources */,
 				0484985F283EA2C700E95685 /* ocado_challengeApp.swift in Sources */,
 				04849890283EA3C600E95685 /* ProductListViewModel.swift in Sources */,

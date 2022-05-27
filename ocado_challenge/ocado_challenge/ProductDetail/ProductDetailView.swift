@@ -41,7 +41,7 @@ struct ProductDetailView: View {
             .navigationBarTitle(Text("Product Detail"))
         }
             .onAppear(perform: {
-                print("product ID: \(productId)")
+                //print("product ID: \(productId)")
                 productDetailVM.getProductDetail(id: productId)
                 productDetailVM.getProductDetailImage(imageUrl: productDetailImageUrl)
             })
