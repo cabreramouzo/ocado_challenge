@@ -13,23 +13,44 @@ final class ProductDetailViewModel: ObservableObject {
     @Published var loading = false
     var subscribers = Set<AnyCancellable>()
     
-    func getProductDetail(id: Int) {
-        loading = true
-        URLSession.shared
-            .dataTaskPublisher(for: getProductUrl(product: id))
-            .map(\.data)
-            .decode(type: ProductDetail.self, decoder: JSONDecoder())
-            .receive(on: DispatchQueue.main)
-            .sink(receiveCompletion: {
-                if case .failure(let error) = $0 {
-                    print("Error when loading \(error)")
-                }
-            }, receiveValue: { response in
-                //print(response)
-                self.productDetail = response
-                self.loading = false
-            })
-            .store(in: &subscribers)
+    let service: ApiServiceProtocol
+    
+    init(service: ApiServiceProtocol = ApiService()) {
+        self.service = service
     }
+    //getProductDetail
+    func fetchProductDetail(id: Int) {
+        loading = true
+        service.fetchProductDetail(productId: id, completion: { productDetail in
+            guard let productDetail = productDetail else {
+                self.loading = false
+                return
+            }
+            
+            self.productDetail = productDetail
+            self.loading = false
+            //print("CLUSTERS")
+            //print(clusters, clusters.count)
+        })
+    }
+    
+//    func getProductDetail(id: Int) {
+//        loading = true
+//        URLSession.shared
+//            .dataTaskPublisher(for: getProductUrl(product: id))
+//            .map(\.data)
+//            .decode(type: ProductDetail.self, decoder: JSONDecoder())
+//            .receive(on: DispatchQueue.main)
+//            .sink(receiveCompletion: {
+//                if case .failure(let error) = $0 {
+//                    print("Error when loading \(error)")
+//                }
+//            }, receiveValue: { response in
+//                //print(response)
+//                self.productDetail = response
+//                self.loading = false
+//            })
+//            .store(in: &subscribers)
+//    }
 }
 

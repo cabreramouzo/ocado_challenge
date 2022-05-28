@@ -55,5 +55,18 @@ class ocado_challengeTests: XCTestCase {
         
         XCTAssertEqual(vm.clusters.count, 0)
     }
+    
+    func testSuccessFetchDataDetail() throws {
+        
+        let ProductDetail = ProductDetail
+        let expectedCluster = [Cluster(tag: tag, items: items)]
+        
+        let service = MockService(mockData: expectedCluster)
+        
+        let vm = ProductListViewModel(service: service)
+        vm.fetchData()
+        
+        XCTAssertEqual(vm.clusters[0].items.count, 2)
+    }
 
 }

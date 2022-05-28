@@ -50,7 +50,7 @@ struct ProductDetailView: View {
         }
             .onAppear(perform: {
                 //print("product ID: \(productId)")
-                productDetailVM.getProductDetail(id: productId)
+                productDetailVM.fetchProductDetail(id: productId)
                 imageVM.getNetworkImage(imageUrl: productDetailImageUrl)
             })
     }

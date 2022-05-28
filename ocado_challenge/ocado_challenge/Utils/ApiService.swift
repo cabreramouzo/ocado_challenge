@@ -16,6 +16,7 @@ func getProductUrl(product id: Int) -> URL {
 
 protocol ApiServiceProtocol {
     func fetchClusters(completion: @escaping ([Cluster]?) -> Void)
+    func fetchProductDetail(productId: Int, completion: @escaping (ProductDetail?) -> Void)
 }
 
 final class ApiService: ApiServiceProtocol {
@@ -35,6 +36,22 @@ final class ApiService: ApiServiceProtocol {
                 //print("responseee")
                 //print(response)
                 completion(response.clusters)
+            })
+            .store(in: &subscribers)
+    }
+    
+    func fetchProductDetail(productId: Int, completion: @escaping (ProductDetail?) -> Void) {
+        URLSession.shared
+            .dataTaskPublisher(for: getProductUrl(product: productId))
+            .map(\.data)
+            .decode(type: ProductDetail.self, decoder: JSONDecoder())
+            .receive(on: DispatchQueue.main)
+            .sink(receiveCompletion: {
+                if case .failure(let error) = $0 {
+                    print("Error when loading \(error)")
+                }
+            }, receiveValue: { response in
+                completion(response)
             })
             .store(in: &subscribers)
     }
