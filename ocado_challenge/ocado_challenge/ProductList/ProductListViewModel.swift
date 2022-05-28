@@ -11,6 +11,7 @@ import Combine
 
 final class ProductListViewModel: ObservableObject {
     @Published var clusters = [Cluster]()
+    @Published var loading = false
     var subscribers = Set<AnyCancellable>()
     
     let service: ApiServiceProtocol
@@ -19,32 +20,18 @@ final class ProductListViewModel: ObservableObject {
     }
     
     func fetchData() {
+        loading = true
         service.fetchClusters(completion: { clusters in
             guard let clusters = clusters else {
                 //print("No habia nada")
+                self.loading = false
                 return
             }
             
             self.clusters = clusters
+            self.loading = false
             //print("CLUSTERS")
             //print(clusters, clusters.count)
         })
     }
-    
-//    init() {
-//        URLSession.shared
-//            .dataTaskPublisher(for: urlProducts!)
-//            .map(\.data)
-//            .decode(type: ApiResult.self, decoder: JSONDecoder())
-//            .receive(on: DispatchQueue.main)
-//            .sink(receiveCompletion: {
-//                if case .failure(let error) = $0 {
-//                    print("Error when leading \(error)")
-//                }
-//            }, receiveValue: { response in
-//                print(response)
-//                self.clusters = response.clusters
-//            })
-//            .store(in: &subscribers)
-//    }
 }

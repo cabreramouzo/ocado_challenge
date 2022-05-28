@@ -14,7 +14,12 @@ struct ProductDetailView: View {
     let productDetailImageUrl: String
     var body: some View {
         VStack {
-            Form {
+            if productDetailVM.loading {
+                ProgressView {
+                    Text("Loading Info...")
+                }
+            } else {
+                Form {
                 Section(header: Text("Title")) {
                     VStack {
                         Text(productDetailVM.productDetail.title)
@@ -39,7 +44,9 @@ struct ProductDetailView: View {
                     }
                 }
             }
+            
             .navigationBarTitle(Text("Product Detail"))
+            }
         }
             .onAppear(perform: {
                 //print("product ID: \(productId)")

@@ -11,19 +11,25 @@ struct productListView: View {
     @EnvironmentObject var productsVM: ProductListViewModel
     var body: some View {
         NavigationView {
-            List {
-                ForEach(productsVM.clusters, id: \.self) { cluster in
-                    Section(header: Text(cluster.tag)) {
-                        ForEach(cluster.items, id: \.self) { item in
-                            NavigationLink(
-                                destination: ProductDetailView(productId: item.id, productDetailImageUrl: item.imageUrl),
-                                label: {
-                                    ProductRow(product: item)
-                                })
+            if productsVM.loading {
+                ProgressView {
+                    Text("Loading Info...")
+                }
+            } else {
+                List {
+                    ForEach(productsVM.clusters, id: \.self) { cluster in
+                        Section(header: Text(cluster.tag)) {
+                            ForEach(cluster.items, id: \.self) { item in
+                                NavigationLink(
+                                    destination: ProductDetailView(productId: item.id, productDetailImageUrl: item.imageUrl),
+                                    label: {
+                                        ProductRow(product: item)
+                                    })
+                            }
                         }
                     }
-                }
-            }.navigationTitle(Text("Products"))
+                }.navigationTitle(Text("Products"))
+            }
         }.onAppear {
             productsVM.fetchData()
         }
