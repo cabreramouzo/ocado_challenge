@@ -9,7 +9,7 @@ import Combine
 import SwiftUI
 
 final class ImageViewModel:ObservableObject {
-    @Published var image = Image(systemName: "camera")
+    @Published var image = Image(systemName: "photo")
     var subscribers = Set<AnyCancellable>()
     
     func getNetworkImage(imageUrl: String) {
@@ -19,8 +19,8 @@ final class ImageViewModel:ObservableObject {
             .map(\.data)
             .compactMap { UIImage(data: $0) }
             .map { Image(uiImage: $0) }
-            .replaceEmpty(with: Image(systemName: "camera"))
-            .replaceError(with: Image(systemName: "camera"))
+            .replaceEmpty(with: Image(systemName: "photo"))
+            .replaceError(with: Image(systemName: "photo"))
             .assign(to: \.image, on: self)
             .store(in: &subscribers)
     }

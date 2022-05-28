@@ -8,6 +8,12 @@
 import Foundation
 import Combine
 
+var urlProducts = URL(string: "https://my-json-server.typicode.com/ocadotechnology/mobile-challenge/products")
+
+func getProductUrl(product id: Int) -> URL {
+    return URL(string: "https://my-json-server.typicode.com/ocadotechnology/mobile-challenge/product/\(id)")!
+}
+
 protocol ApiServiceProtocol {
     func fetchClusters(completion: @escaping ([Cluster]?) -> Void)
 }

@@ -7,9 +7,6 @@
 
 import Foundation
 
-
-var urlProducts = URL(string: "https://my-json-server.typicode.com/ocadotechnology/mobile-challenge/products")
-
 struct ApiResult: Decodable {
     var clusters: [Cluster]
 }
