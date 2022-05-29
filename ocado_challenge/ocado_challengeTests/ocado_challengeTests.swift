@@ -50,7 +50,7 @@ class ocado_challengeTests: XCTestCase {
     
     func testNilData() {
         let clusters: [Cluster]? = nil
-        let expectedApiResult = ApiResult(clusters: nil)
+        let expectedApiResult = ApiResult(clusters: clusters)
         let service = MockService(mockData: expectedApiResult)
         
         let vm = ProductListViewModel(service: service)
