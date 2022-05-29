@@ -1,6 +1,6 @@
 # ocado_challenge
 
-This project is part of Ocado's challenge and it consists in a simple app made using SwiftUI and [Combine](https://developer.apple.com/documentation/combine) to retrive a list of products from JSON API.
+This project is part of [Ocado's challenge](https://github.com/ocadotechnology/mobile-challenge) and it consists in a simple app made using SwiftUI and [Combine](https://developer.apple.com/documentation/combine) to retrive a list of products from JSON API.
 
 The App is made using MVVM architecture and its UI is build with SwiftUI. The retrieval of products images are made using Apple's Combine asynchronous API.
 
