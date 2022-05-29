@@ -63,7 +63,7 @@ class ocado_challengeTests: XCTestCase {
         let service = MockService(mockProductDetail: expectedProductDetail)
         
         let vm = ProductDetailViewModel(service: service)
-        vm.fetchProductDetail(id: expectedProductDetail.id)
+        vm.getProductDetail(id: expectedProductDetail.id)
         
         XCTAssertEqual(vm.productDetail, expectedProductDetail)
     }
