@@ -13,3 +13,6 @@ This app is very simple but contains a few tests. To test a MVVM architecture, I
 
 Source files are grouped into screens/feature related, due this app has 2 screen types, there are `ProductList` and `ProductDetail` folders with its `Model`, `ViewModel` and `View` swift files.
 
+# TODO
+- [] UI tests
+- [] Simplify SwiftUI Previews
