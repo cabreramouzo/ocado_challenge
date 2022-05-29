@@ -50,7 +50,7 @@ struct ProductDetailView: View {
         }
             .onAppear(perform: {
                 //print("product ID: \(productId)")
-                productDetailVM.getProductDetail(id: productId)
+                productDetailVM.getProductDetail(product: productId)
                 imageVM.getNetworkImage(imageUrl: productDetailImageUrl)
             })
     }
@@ -60,7 +60,7 @@ struct ProductDetailView_Previews: PreviewProvider {
     static var previews: some View {
         let productDetail = ProductDetail(id: 1, price: "22", title: "Prodcut 1", imageUrl: "", description: "description", allergyInformation: "None")
         
-        let service = MockService(mockProductDetail: productDetail)
+        let service = MockService(mockData: productDetail)
         
         let vm = ProductDetailViewModel(service: service)
         ProductDetailView(productDetailVM: vm, imageVM: ImageViewModel(), productId: 1, productDetailImageUrl: "")

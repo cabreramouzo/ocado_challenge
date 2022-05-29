@@ -12,26 +12,23 @@ import Combine
 final class ProductListViewModel: ObservableObject {
     @Published var clusters = [Cluster]()
     @Published var loading = true
-    var subscribers = Set<AnyCancellable>()
     
+    let apiURN = "/products"
     let service: ApiServiceProtocol
     init(service: ApiServiceProtocol = ApiService()) {
         self.service = service
     }
     
-    func fetchData() {
+    func getClusters() {
         loading = true
-        service.fetchClusters(completion: { clusters in
-            guard let clusters = clusters else {
-                //print("No habia nada")
+        service.fetchData(uri: apiURN, model:ApiResult.self, completion: { data in
+            self.loading = false
+            guard let apiResult = data else {
                 self.loading = false
                 return
             }
-            
-            self.clusters = clusters
-            self.loading = false
-            //print("CLUSTERS")
-            //print(clusters, clusters.count)
+
+            self.clusters = apiResult.clusters ?? []
         })
     }
 }

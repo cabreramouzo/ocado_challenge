@@ -7,25 +7,28 @@
 
 import Foundation
 
-class MockService: ApiServiceProtocol {
+class MockService<T>: ApiServiceProtocol {
     
-    let mockClusters: [Cluster]?
-    let mockProductDetail: ProductDetail?
+    let mockData: T?
     
-    init(mockClusters: [Cluster]?) {
-        self.mockClusters = mockClusters
-        self.mockProductDetail = nil
-    }
-    init(mockProductDetail: ProductDetail?) {
-        self.mockProductDetail = mockProductDetail
-        self.mockClusters = nil
+    init(mockData: T?) {
+        self.mockData = mockData
     }
     
-    func fetchClusters(completion: @escaping ([Cluster]?) -> Void) {
-        completion(mockClusters)
+    func fetchData<T>(uri: String, model: T.Type, completion: @escaping (T?) -> Void) where T : Decodable {
+        
+        completion(mockData as! T)
+        
     }
     
-    func fetchProductDetail(productId: Int, completion: @escaping (ProductDetail?) -> Void) {
-        completion(mockProductDetail)
-    }
 }
+
+//service.fetchData(uri: apiURN, model:ApiResult.self, completion: { data in
+//    self.loading = false
+//    guard let apiResult = data else {
+//        self.loading = false
+//        return
+//    }
+//
+//    self.clusters = apiResult.clusters
+//})

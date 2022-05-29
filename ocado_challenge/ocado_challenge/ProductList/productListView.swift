@@ -11,6 +11,7 @@ struct productListView: View {
     @EnvironmentObject var productsVM: ProductListViewModel
     var body: some View {
         NavigationView {
+            
             if productsVM.loading {
                 ProgressView {
                     Text("Loading Info...")
@@ -31,7 +32,7 @@ struct productListView: View {
                 }.navigationTitle(Text("Products"))
             }
         }.onAppear {
-            productsVM.fetchData()
+            productsVM.getClusters()
         }
     }
 }

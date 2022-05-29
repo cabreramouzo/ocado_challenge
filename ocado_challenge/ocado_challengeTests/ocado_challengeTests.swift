@@ -27,31 +27,34 @@ class ocado_challengeTests: XCTestCase {
         ]
         let expectedCluster = [Cluster(tag: tag, items: items)]
         
-        let service = MockService(mockClusters: expectedCluster)
+        let expectedApiResult = ApiResult(clusters: expectedCluster)
+        
+        let service = MockService(mockData: expectedApiResult.self)
         
         let vm = ProductListViewModel(service: service)
-        vm.fetchData()
+        vm.getClusters()
         
         XCTAssertEqual(vm.clusters[0].items.count, 2)
     }
     
     func testEmptyData() {
-        let expected = [Cluster]()
-        let service = MockService(mockClusters: expected)
+        let expected = ApiResult(clusters: [Cluster]())
+        let service = MockService(mockData: expected)
         
         let vm = ProductListViewModel(service: service)
 
-        vm.fetchData()
+        vm.getClusters()
         
         XCTAssertEqual(vm.clusters.count, 0)
     }
     
     func testNilData() {
-        let expectedList: [Cluster]? = nil
-        let service = MockService(mockClusters: expectedList)
+        let clusters: [Cluster]? = nil
+        let expectedApiResult = ApiResult(clusters: nil)
+        let service = MockService(mockData: expectedApiResult)
         
         let vm = ProductListViewModel(service: service)
-        vm.fetchData()
+        vm.getClusters()
         
         XCTAssertEqual(vm.clusters.count, 0)
     }
@@ -60,10 +63,10 @@ class ocado_challengeTests: XCTestCase {
         
         let expectedProductDetail = ProductDetail(id: 1, price: "22", title: "Prodcut 1", imageUrl: "", description: "description", allergyInformation: "None")
         
-        let service = MockService(mockProductDetail: expectedProductDetail)
+        let service = MockService(mockData: expectedProductDetail)
         
         let vm = ProductDetailViewModel(service: service)
-        vm.getProductDetail(id: expectedProductDetail.id)
+        vm.getProductDetail(product: expectedProductDetail.id)
         
         XCTAssertEqual(vm.productDetail, expectedProductDetail)
     }

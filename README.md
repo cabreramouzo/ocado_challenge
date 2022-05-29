@@ -9,7 +9,7 @@ Taking advantage of async requests, I made a middle View using SwiftUI  `Progres
 ![Link Network Conditioner screen](https://useyourloaf.com/blog/network-link-conditioner/002.png)
 
 
-This app is very simple but contains a few tests. To test an MVVM architecture, I use a Repo pattern to provide an abstraction of data and be able to mock up the fake local data for testing JSON decodification into App's models.
+This app is very simple but contains a few tests. To test an MVVM architecture, I use a Repo pattern to provide an abstraction of data using [Swift Genereics](https://docs.swift.org/swift-book/LanguageGuide/Generics.html) and be able to mock up a fake local data for testing JSON decodification into App's models.
 
 Source files are grouped into screens/feature related, due this app has 2 screen types, there are `ProductList` and `ProductDetail` folders with its `Model`, `ViewModel` and `View` swift files.
 

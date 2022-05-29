@@ -8,7 +8,7 @@
 import Foundation
 
 struct ApiResult: Decodable {
-    var clusters: [Cluster]
+    var clusters: [Cluster]?
 }
 
 struct Cluster: Decodable, Hashable {
