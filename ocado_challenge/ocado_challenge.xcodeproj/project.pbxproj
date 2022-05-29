@@ -20,6 +20,7 @@
 		04A783C6283F97CC00CBCEFC /* ProductDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A783C5283F97CC00CBCEFC /* ProductDetailView.swift */; };
 		04E427912842714900B2E9D3 /* ProductDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A783BB283F933400CBCEFC /* ProductDetailModel.swift */; };
 		04E427952842714E00B2E9D3 /* ProductDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A783C0283F968F00CBCEFC /* ProductDetailViewModel.swift */; };
+		04E4279928427E7E00B2E9D3 /* MockService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F5830E28415B3000373428 /* MockService.swift */; };
 		04F582E22840E2EE00373428 /* ImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F582E12840E2EE00373428 /* ImageViewModel.swift */; };
 		04F582EC28413EA000373428 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F582EB28413EA000373428 /* ApiService.swift */; };
 		04F5830F28415B3000373428 /* MockService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F5830E28415B3000373428 /* MockService.swift */; };
@@ -313,6 +314,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				04A783BC283F933400CBCEFC /* ProductDetailModel.swift in Sources */,
+				04E4279928427E7E00B2E9D3 /* MockService.swift in Sources */,
 				04A783C6283F97CC00CBCEFC /* ProductDetailView.swift in Sources */,
 				04F582E22840E2EE00373428 /* ImageViewModel.swift in Sources */,
 				04849861283EA2C700E95685 /* productListView.swift in Sources */,

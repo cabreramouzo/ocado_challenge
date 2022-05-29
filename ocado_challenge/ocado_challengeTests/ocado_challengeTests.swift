@@ -27,7 +27,7 @@ class ocado_challengeTests: XCTestCase {
         ]
         let expectedCluster = [Cluster(tag: tag, items: items)]
         
-        let service = MockService(mockData: expectedCluster)
+        let service = MockService(mockClusters: expectedCluster)
         
         let vm = ProductListViewModel(service: service)
         vm.fetchData()
@@ -37,7 +37,7 @@ class ocado_challengeTests: XCTestCase {
     
     func testEmptyData() {
         let expected = [Cluster]()
-        let service = MockService(mockData: expected)
+        let service = MockService(mockClusters: expected)
         
         let vm = ProductListViewModel(service: service)
 
@@ -48,7 +48,7 @@ class ocado_challengeTests: XCTestCase {
     
     func testNilData() {
         let expectedList: [Cluster]? = nil
-        let service = MockService(mockData: expectedList)
+        let service = MockService(mockClusters: expectedList)
         
         let vm = ProductListViewModel(service: service)
         vm.fetchData()
@@ -58,15 +58,14 @@ class ocado_challengeTests: XCTestCase {
     
     func testSuccessFetchDataDetail() throws {
         
-        let ProductDetail = ProductDetail
-        let expectedCluster = [Cluster(tag: tag, items: items)]
+        let expectedProductDetail = ProductDetail(id: 1, price: "22", title: "Prodcut 1", imageUrl: "", description: "description", allergyInformation: "None")
         
-        let service = MockService(mockData: expectedCluster)
+        let service = MockService(mockProductDetail: expectedProductDetail)
         
-        let vm = ProductListViewModel(service: service)
-        vm.fetchData()
+        let vm = ProductDetailViewModel(service: service)
+        vm.fetchProductDetail(id: expectedProductDetail.id)
         
-        XCTAssertEqual(vm.clusters[0].items.count, 2)
+        XCTAssertEqual(vm.productDetail, expectedProductDetail)
     }
 
 }

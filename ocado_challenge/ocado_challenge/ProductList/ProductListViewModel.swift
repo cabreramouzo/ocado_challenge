@@ -11,7 +11,7 @@ import Combine
 
 final class ProductListViewModel: ObservableObject {
     @Published var clusters = [Cluster]()
-    @Published var loading = false
+    @Published var loading = true
     var subscribers = Set<AnyCancellable>()
     
     let service: ApiServiceProtocol

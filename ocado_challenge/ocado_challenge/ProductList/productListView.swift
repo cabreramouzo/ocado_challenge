@@ -58,8 +58,9 @@ struct ProductRow: View {
     }
 }
 
-//struct ContentView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        productListView(clusters: <#[Cluster]#>)
-//    }
-//}
+struct ContentView_Previews: PreviewProvider {
+    static let vm = ProductListViewModel()
+    static var previews: some View {
+        productListView().environmentObject(vm)
+    }
+}

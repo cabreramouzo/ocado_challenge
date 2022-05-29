@@ -50,14 +50,19 @@ struct ProductDetailView: View {
         }
             .onAppear(perform: {
                 //print("product ID: \(productId)")
-                productDetailVM.fetchProductDetail(id: productId)
+                productDetailVM.getProductDetail(id: productId)
                 imageVM.getNetworkImage(imageUrl: productDetailImageUrl)
             })
     }
 }
 
-//struct ProductDetailView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ProductDetailView()
-//    }
-//}
+struct ProductDetailView_Previews: PreviewProvider {
+    static var previews: some View {
+        let productDetail = ProductDetail(id: 1, price: "22", title: "Prodcut 1", imageUrl: "", description: "description", allergyInformation: "None")
+        
+        let service = MockService(mockProductDetail: productDetail)
+        
+        let vm = ProductDetailViewModel(service: service)
+        ProductDetailView(productDetailVM: vm, imageVM: ImageViewModel(), productId: 1, productDetailImageUrl: "")
+    }
+}
